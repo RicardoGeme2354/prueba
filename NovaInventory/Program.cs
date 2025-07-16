@@ -1,7 +1,23 @@
+using Microsoft.EntityFrameworkCore;
+using NovaInventory.Data;
+using NovaInventory.Repositories.IRepositories;
+using NovaInventory.Repositories;
+using NovaInventory.Services.IServices;
+using NovaInventory.Services;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+
+builder.Services.AddDbContext<NovaInventoryDbContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+
+builder.Services.AddScoped<IProductRepository, ProductRepository>();
+builder.Services.AddScoped<IClientRepository, ClientRepository>();
+
+builder.Services.AddScoped<IProductService, ProductService>();
+builder.Services.AddScoped<IClientService, ClientService>();
 
 var app = builder.Build();
 

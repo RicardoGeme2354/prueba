@@ -1,9 +1,6 @@
 using NovaInventory.Repositories.IRepositories;
 using NovaInventory.Data;
-using System.Collections.Generic;
-using System.Threading.Tasks;
 using NovaInventory.Models.Entities;
-using System.Security.Cryptography.X509Certificates;
 using Microsoft.EntityFrameworkCore;
 
 namespace NovaInventory.Repositories
@@ -20,6 +17,7 @@ namespace NovaInventory.Repositories
         public async Task<IEnumerable<Client>?> GetAllClients()
         {
             return await _context.Clients
+                .Where(client => client.stateId == 3)
                 .ToListAsync();
         }
 
@@ -27,16 +25,27 @@ namespace NovaInventory.Repositories
         {
 
             await _context.Clients.AddAsync(newClient);
+            await _context.SaveChangesAsync();
         }
 
-        Task DeleteClient(Client client)
+        public async Task DeleteClient(Client client)
         {
-            client.StatusId = 5; // representa el id de usuario bloqueado
+            client.stateId = 5;
+            _context.Clients.Update(client);
+            await _context.SaveChangesAsync();
         }
 
-        Task UpdateStatusUser(Client client, StatusId statusId)
+        public async Task UpdateStatusUser(Client client, int statusId)
         {
-            
+            client.stateId = statusId;
+            _context.Clients.Update(client);
+            await _context.SaveChangesAsync();
+        }
+
+        public async Task<Client?> GetClientByName(string ClientName)
+        {
+            return await _context.Clients
+                .FirstOrDefaultAsync(client => client.clientName == ClientName);
         }
     }
 }
