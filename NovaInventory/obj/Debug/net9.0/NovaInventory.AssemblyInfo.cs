@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("NovaInventory")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+400c4991dec3e13e39fb2b9555f561eeb657a051")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+b89fe0b59173fe531bc1858af8141e1109db6708")]
 [assembly: System.Reflection.AssemblyProductAttribute("NovaInventory")]
 [assembly: System.Reflection.AssemblyTitleAttribute("NovaInventory")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

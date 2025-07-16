@@ -1,10 +1,22 @@
+-----------------Creando el usuario conexion---------------
+USE NovaInventory;
+
+CREATE LOGIN ricardo WITH PASSWORD = 'Gemelo2024!';
+
+CREATE USER ricardo FOR LOGIN ricardo;
+
+ALTER ROLE db_owner ADD MEMBER ricardo;
+
+SELECT * FROM Clients;
+-----------------------------------------------------------
+
 CREATE DATABASE NovaInventory; -- Creacion de la base de datos
 
 USE NovaInventory; -- Acceder a la base de datos
 
 -- Creacion de tablas
 CREATE TABLE Clients(
-	clientId INT PRIMARY KEY,
+	clientId INT PRIMARY KEY IDENTITY,
 	clientName VARCHAR(100),
 	stateId INT
 );
@@ -48,7 +60,7 @@ ALTER TABLE Orders ADD CONSTRAINT FK_ProductId_Order FOREIGN KEY (orderId)
 INSERT INTO States(stateName) VALUES ('Agotado'); -- Sin procedimiento
 
 -- Con procedimiento almacenado
-CREATE PROCEDURE InsertarEstado
+CREATE PROCEDURE InsertarCliente
 	@NombreEstado VARCHAR(50)
 AS
 BEGIN
@@ -60,6 +72,16 @@ EXEC InsertarEstado	@NombreEstado='Disponible';
 EXEC InsertarEstado	@NombreEstado='Activo';
 EXEC InsertarEstado	@NombreEstado='Inactivo';
 EXEC InsertarEstado	@NombreEstado='Bloqueado';
+
+CREATE PROCEDURE InsertarNuevo
+	@NombreCliente VARCHAR(50),
+	@EstadoId INT
+AS
+BEGIN
+	INSERT INTO Clients(clientName, stateId) VALUES (@NombreCliente, @EstadoId);
+END;
+
+EXEC InsertarNuevo @NombreCliente='Jose', @EstadoId=3;
 
 -- Eliminar tablas
 DROP TABLE Clients;

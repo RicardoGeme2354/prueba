@@ -1,0 +1,24 @@
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.2.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NovaInventory", "NovaInventory\NovaInventory.csproj", "{E97EBEDB-1E1F-B264-1D6A-D7478BCFFFFA}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E97EBEDB-1E1F-B264-1D6A-D7478BCFFFFA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E97EBEDB-1E1F-B264-1D6A-D7478BCFFFFA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E97EBEDB-1E1F-B264-1D6A-D7478BCFFFFA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E97EBEDB-1E1F-B264-1D6A-D7478BCFFFFA}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {309587DD-D5C9-4ED9-8E1C-1BDA32CC1207}
+	EndGlobalSection
+EndGlobal
