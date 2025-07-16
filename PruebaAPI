@@ -1,0 +1,205 @@
+type: collection.insomnia.rest/5.0
+name: My first collection
+meta:
+  id: wrk_9b15e987a5e14e1d91fead8754a68aaa
+  created: 1752637776037
+  modified: 1752637776037
+  description: ""
+collection:
+  - name: ClientCRUD
+    meta:
+      id: fld_4fa0b6d6a37c4e4fa015cc0a894cb79f
+      created: 1752642270793
+      modified: 1752642270793
+      sortKey: -1752642270793
+      description: ""
+    children:
+      - url: http://localhost:5228/api/Client/find-all-clients
+        name: findAllClients
+        meta:
+          id: req_bb92ca6132f946a9a9281fb321fd9a0b
+          created: 1752640904804
+          modified: 1752642282473
+          isPrivate: false
+          description: ""
+          sortKey: -1752642277769
+        method: GET
+        headers:
+          - name: User-Agent
+            value: insomnia/11.2.0
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:5228/api/Client/add-user/Raul
+        name: createClient
+        meta:
+          id: req_d750f529695946db82e65c86763039f4
+          created: 1752640967956
+          modified: 1752642277498
+          isPrivate: false
+          description: ""
+          sortKey: -1752642277469
+        method: POST
+        headers:
+          - name: User-Agent
+            value: insomnia/11.2.0
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:5228/api/Client/delete-user/Raul
+        name: DeleteClient
+        meta:
+          id: req_8970bbb353c04d01a42e08ac1857822e
+          created: 1752642319291
+          modified: 1752642319291
+          isPrivate: false
+          description: ""
+          sortKey: -1752642277619
+        method: DELETE
+        headers:
+          - name: User-Agent
+            value: insomnia/11.2.0
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:5228/api/Client/update-user/Raul/3
+        name: updateClient
+        meta:
+          id: req_1ca91b5afd0044ebafcfe5a0c9860afb
+          created: 1752642326785
+          modified: 1752642326785
+          isPrivate: false
+          description: ""
+          sortKey: -1752642277519
+        method: PATCH
+        headers:
+          - name: User-Agent
+            value: insomnia/11.2.0
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+  - name: ProductCRUD
+    meta:
+      id: fld_b04f595cb6ef414b83399c433cf235d2
+      created: 1752642304102
+      modified: 1752642304102
+      sortKey: -1752642304102
+      description: ""
+    children:
+      - url: http://localhost:5228/api/Product/find-all-products
+        name: findAllProducts
+        meta:
+          id: req_5326601d1f3b4b39879010fdfbe1ebf0
+          created: 1752637776198
+          modified: 1752642611943
+          isPrivate: false
+          description: ""
+          sortKey: -1752642309346
+        method: GET
+        headers:
+          - name: User-Agent
+            value: insomnia/11.2.0
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:5228/api/Product/delete-product/Reloj
+        name: DeleteClient
+        meta:
+          id: req_02ce51ecacd84ba182a50d49dcb9dd9e
+          created: 1752642008710
+          modified: 1752642644522
+          isPrivate: false
+          description: ""
+          sortKey: -1752642309246
+        method: DELETE
+        headers:
+          - name: User-Agent
+            value: insomnia/11.2.0
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:5228/api/Product/update-product/Camisa/2
+        name: updateClient
+        meta:
+          id: req_9ba88bd934934c9e96cbea05c3fa425c
+          created: 1752642223150
+          modified: 1752642755256
+          isPrivate: false
+          description: ""
+          sortKey: -1752642309446
+        method: PATCH
+        headers:
+          - name: User-Agent
+            value: insomnia/11.2.0
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:5228/api/Product/add-product/Reloj
+        name: createProduct
+        meta:
+          id: req_ecffa08359be4e208805481ef11a6d1f
+          created: 1752642341933
+          modified: 1752642617697
+          isPrivate: false
+          description: ""
+          sortKey: -1752642309546
+        method: POST
+        headers:
+          - name: User-Agent
+            value: insomnia/11.2.0
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+cookieJar:
+  name: Default Jar
+  meta:
+    id: jar_6531a799cae1a009ba0de3b4bbc45487bac49fe0
+    created: 1752637776069
+    modified: 1752637776069
+environments:
+  name: Base Environment
+  meta:
+    id: env_6531a799cae1a009ba0de3b4bbc45487bac49fe0
+    created: 1752637776049
+    modified: 1752637776049
+    isPrivate: false
