@@ -1,0 +1,70 @@
+CREATE DATABASE NovaInventory; -- Creacion de la base de datos
+
+USE NovaInventory; -- Acceder a la base de datos
+
+-- Creacion de tablas
+CREATE TABLE Clients(
+	clientId INT PRIMARY KEY,
+	clientName VARCHAR(100),
+	stateId INT
+);
+
+CREATE TABLE Products(
+	productId INT PRIMARY KEY IDENTITY,
+	productName VARCHAR(100),
+	stateId INT
+);
+
+CREATE TABLE States(
+	StateId INT PRIMARY KEY IDENTITY,
+	stateName VARCHAR(50)
+);
+
+CREATE TABLE Orders (
+	orderId INT PRIMARY KEY IDENTITY,
+	userId INT,
+	ProductId INT
+);
+	
+-- Verificacion de creacion
+SELECT * FROM Clients;
+SELECT * FROM Products;
+SELECT * FROM States;
+SELECT * FROM Orders;
+
+-- Declaracion de llaves foraneas
+ALTER TABLE Clients ADD CONSTRAINT FK_StateId FOREIGN KEY (stateId)
+	REFERENCES States(stateId); -- User ya tiene el id del estado
+
+ALTER TABLE Products ADD CONSTRAINT FK_StateId_Product FOREIGN KEY (stateId)
+	REFERENCES States(stateId); -- Product ya tiene el id del estado
+
+ALTER TABLE Orders ADD CONSTRAINT FK_UserId_Order FOREIGN KEY (userId)
+	REFERENCES Clients(clientId); -- Order ya tiene el id del usuario
+
+ALTER TABLE Orders ADD CONSTRAINT FK_ProductId_Order FOREIGN KEY (orderId)
+	REFERENCES Products(productId); -- Order ya tiene el id del producto
+
+INSERT INTO States(stateName) VALUES ('Agotado'); -- Sin procedimiento
+
+-- Con procedimiento almacenado
+CREATE PROCEDURE InsertarEstado
+	@NombreEstado VARCHAR(50)
+AS
+BEGIN
+	INSERT INTO States(stateName) VALUES (@NombreEstado);
+END;
+
+-- Ejecucion deprocedimiento almacenado
+EXEC InsertarEstado	@NombreEstado='Disponible';
+EXEC InsertarEstado	@NombreEstado='Activo';
+EXEC InsertarEstado	@NombreEstado='Inactivo';
+EXEC InsertarEstado	@NombreEstado='Bloqueado';
+
+-- Eliminar tablas
+DROP TABLE Clients;
+DROP TABLE Products;
+DROP TABLE States;
+DROP TABLE Orders;
+
+DROP DATABASE NovaInventory; -- Eliminar la base de datos
